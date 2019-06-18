@@ -11,7 +11,7 @@ export class IpsUserService {
     ) { }
 
     createIpUser(ipUser) {
-        return this.http.post('http://localhost:3000/api/ips/createIpUser', ipUser);
+        return this.http.post('https://gamescode.herokuapp.com/api/ips/createIpUser', ipUser);
     }
 
     getIpUser() {
