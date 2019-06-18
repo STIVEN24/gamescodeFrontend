@@ -1,0 +1,209 @@
+<mat-card class="mat-card">
+
+    <mat-card-header>
+
+        <img mat-card-avatar
+            [src]="!game.url_portada ? 'https://cdn.shopify.com/s/files/1/1004/7434/t/5/assets/no-img.jpg?0' : game.url_portada">
+
+        <mat-card-title>
+            <h1>{{ game.nombre }}</h1>
+        </mat-card-title>
+
+        <mat-card-subtitle *ngFor="let detalle of game.detalles">
+            Publicado {{ game.fecha_publicada | timeAgo }} | Visitas: {{ game.visitas }}
+        </mat-card-subtitle>
+
+        <a target="_bank" href="{{ game.url_mega }}?tokenValidate={{ tokenValidate }}&token={{ token }}">
+            <button mat-raised-button color="accent">
+                Descargar ahora!
+                <mat-icon>cloud_download</mat-icon>
+            </button>
+        </a>
+
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+    <br>
+
+    <mat-card-content>
+
+        <h1>
+            < Trailer >
+        </h1>
+
+        <br><br>
+        <div class="iframe">
+            <iframe mat-card-image *ngIf="game.url_trailer" [src]="game.url_trailer | safe" frameborder="0"
+                allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+                allowfullscreen></iframe>
+        </div>
+
+        <mat-divider></mat-divider>
+        <br><br>
+
+        <h1>
+            < Descripción del juego >
+        </h1>
+
+        <br>
+        <p>
+            {{ game.descripcion }}
+        </p>
+
+        <br>
+
+        <mat-divider></mat-divider>
+        <br>
+
+        <mat-list dense *ngFor="let detalle of game.detalles">
+
+            <h1>
+                < Ficha técnica >
+            </h1>
+
+            <mat-list-item>
+                <h3 mat-subheader>Tamaño:</h3>
+                <h4>{{ detalle['tamaño'] | uppercase }}</h4>
+            </mat-list-item>
+            <mat-list-item>
+                <h3 mat-subheader>Genero:</h3>
+                <h4>{{ detalle['genero'] }}</h4>
+            </mat-list-item>
+            <mat-list-item>
+                <h3 mat-subheader>Plataformas</h3>
+                <h4>{{ detalle['plataforma'] }}</h4>
+            </mat-list-item>
+            <mat-list-item>
+                <h3 mat-subheader>Formato:</h3>
+                <h4>{{ detalle['formato'] }}</h4>
+            </mat-list-item>
+            <mat-list-item>
+                <h3 mat-subheader>Idioma:</h3>
+                <h4>{{ detalle['idioma'] }}</h4>
+            </mat-list-item>
+            <mat-list-item>
+                <h3 mat-subheader>Fecha de lanzamiento oficial:</h3>
+                <h4>{{ !detalle['lanzamiento'] ? 'No hemos actualizado este detalle' : detalle['lanzamiento'] }}</h4>
+            </mat-list-item>
+        </mat-list>
+
+        <mat-divider></mat-divider>
+        <br>
+
+        <h1>
+            < Imágenes >
+        </h1>
+        <br>
+
+        <div *ngFor="let img of game.urls_imagenes; let i = index" class="content-images">
+            <mat-spinner *ngIf="verifyImgLoaded" color="accent"></mat-spinner>
+            <img (load)="some(i)" mat-card-image [src]="img">
+
+            <div class="wallpaperImgGameOverlay">
+            </div>
+            <img class="wallpaperImgGame" [src]="img">
+
+        </div>
+
+
+        <p *ngIf="!game.urls_imagenes">No hemos actualizado las imágenes</p>
+
+        <br>
+        <mat-divider></mat-divider>
+        <br>
+
+
+        <div *ngIf="game.requisitos_min">
+            <h1>
+                < Requisitos mínimos >
+            </h1>
+            <mat-list dense *ngFor="let requisito of game.requisitos_min">
+                <mat-list-item>
+                    <h3 mat-subheader>Sistemas operativos: </h3>
+                    <h4>{{ requisito['so'] }}</h4>
+                </mat-list-item>
+                <mat-list-item>
+                    <h3 mat-subheader>Procesador:</h3>
+                    <h4>{{ requisito['cpu'] }}</h4>
+                </mat-list-item>
+                <mat-list-item>
+                    <h3 mat-subheader>Memoria ram:</h3>
+                    <h4>{{ requisito['ram'] }}</h4>
+                </mat-list-item>
+                <mat-list-item>
+                    <h3 mat-subheader>Tarjeta gráfica:</h3>
+                    <h4>{{ requisito['gpu'] }}</h4>
+                </mat-list-item>
+                <mat-list-item>
+                    <h3 mat-subheader>Espacio requerido:</h3>
+                    <h4>{{ requisito['hdd'] }}</h4>
+                </mat-list-item>
+            </mat-list>
+        </div>
+
+        <div *ngIf="game.requisitos_rec">
+            <h1>
+                < Requisitos recomendados >
+            </h1>
+            <mat-list dense *ngFor="let requisito of game.requisitos_rec">
+                <mat-list-item>
+                    <h3 mat-subheader>Sistemas operativos: </h3>
+                    <h4>{{ requisito['so'] }}</h4>
+                </mat-list-item>
+                <mat-list-item>
+                    <h3 mat-subheader>Procesador:</h3>
+                    <h4>{{ requisito['cpu'] }}</h4>
+                </mat-list-item>
+                <mat-list-item>
+                    <h3 mat-subheader>Memoria ram:</h3>
+                    <h4>{{ requisito['ram'] }}</h4>
+                </mat-list-item>
+                <mat-list-item>
+                    <h3 mat-subheader>Tarjeta gráfica:</h3>
+                    <h4>{{ requisito['gpu'] }}</h4>
+                </mat-list-item>
+                <mat-list-item>
+                    <h3 mat-subheader>Espacio requerido:</h3>
+                    <h4>{{ requisito['hdd'] }}</h4>
+                </mat-list-item>
+            </mat-list>
+        </div>
+
+        <mat-divider></mat-divider>
+        <br>
+        <h1>
+            < Enlace de descarga >
+        </h1>
+        <br>
+
+        <mat-card-actions style="display: flex; justify-content: center">
+            <a target="_bank" href="{{ game.url_mega }}?tokenValidate={{ tokenValidate }}&token={{ token }}">
+                <button mat-raised-button color="accent">
+                    Descargar por MEGA
+                    <mat-icon>cloud_download</mat-icon>
+                </button>
+            </a>
+        </mat-card-actions>
+
+        <mat-divider></mat-divider>
+        <br>
+
+        <h1>
+            < Instrucción de instalación >
+        </h1>
+        <br>
+
+        <p>
+            {{ game.instrucciones }}
+        </p>
+
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-flat-button routerLink="/">Volver</button>
+        <mat-chip-list>
+            <mat-chip *ngFor="let tag of game.etiquetas">{{ tag }}</mat-chip>
+        </mat-chip-list>
+    </mat-card-actions>
+
+</mat-card>

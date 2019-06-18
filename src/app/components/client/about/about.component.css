@@ -1,0 +1,27 @@
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+
+h1, p, h4, h3, h2 {
+    padding: 1em 0
+}
+
+h4 {
+    margin-left:1em
+}
+
+a {
+    color:#fff
+}
+
+.logos {
+    width: 100%;
+    max-width: 200px;
+    margin:auto;
+}
+
+.logos img {
+    width: 200px
+}

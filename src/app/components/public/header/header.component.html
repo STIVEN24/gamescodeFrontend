@@ -1,0 +1,27 @@
+<header>
+
+    <span></span>
+
+    <nav>
+        <mat-action-list>
+            <button routerLinkActive="active" mat-list-item routerLink="/games">Juegos</button>
+            <button routerLinkActive="active" mat-list-item routerLink="/about">Acerca de</button>
+        </mat-action-list>
+    </nav>
+
+    <div class="footer-header">
+        <i style="margin:0 10px" class="em em-flag-co"></i> &copy;2019
+    </div>
+
+</header>
+
+<div class="containerFather">
+    <div class="container" [@routeAnimations]="prepareRoute(outlet)">
+        <router-outlet #outlet="outlet"></router-outlet>
+    </div>
+</div>
+
+
+<div *ngIf="removePageLoaded" class="overlay-for-spinner {{ !pageLoaded ? 'deactive' : '' }}">
+    <mat-spinner color="primary"></mat-spinner>
+</div>
