@@ -10,7 +10,7 @@ export class GameService {
     private http: HttpClient
   ) { }
 
-  url_api = "https://gamescode.herokuapp.com/api/games/";
+  url_api = "https://gamescodebackend.herokuapp.com/api/games/";
 
   getGames() {
     return this.http.get(`${this.url_api}getGames`);
