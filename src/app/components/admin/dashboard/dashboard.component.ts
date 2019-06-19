@@ -32,7 +32,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.mobileQuery = mediaMatcher.matchMedia(' (max-width: 760px) ');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
-    console.log(this.mobileQuery.matches)
   }
 
   private _mobileQueryListener: () => void;
