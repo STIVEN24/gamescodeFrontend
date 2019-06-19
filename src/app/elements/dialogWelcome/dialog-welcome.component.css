@@ -3,3 +3,11 @@ mat-grid-list {
     max-width: 1200px;
     margin:Auto
 }
+
+h3 {
+    line-height: 2em 
+}
+
+p {
+    line-height: 1.5em 
+}
