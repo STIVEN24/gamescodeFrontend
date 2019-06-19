@@ -1,4 +1,58 @@
-<header>
+<mat-sidenav-container [hasBackdrop]="false">
+
+    <!-- sidenav -->
+    <mat-sidenav #sidenav opened>
+
+        <div class="sidenav-container">
+            <div class="mat-icon-menu-sidenav">
+                <button mat-icon-button color="primary" (click)="sidenav.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+
+            <mat-nav-list>
+                <a routerLinkActive="active" mat-list-item routerLink="/games">Juegos</a>
+                <a routerLinkActive="active" mat-list-item routerLink="/about">Acerca de</a>
+            </mat-nav-list>
+
+            <div class="footer-header">
+                <i style="margin:0 10px" class="em em-flag-co"></i> &copy;2019
+            </div>
+        </div>
+
+    </mat-sidenav>
+    <!-- /sidenav -->
+
+    <!-- sidenav-content -->
+    <mat-sidenav-content>
+
+        <!-- header -->
+
+        <!-- button-menu -->
+        <button color="primary" mat-icon-button (click)="sidenav.toggle()" class="mat-icon-menu-content">
+            <!-- icon-menu -->
+            <mat-icon>menu</mat-icon>
+            <!-- /icon-menu -->
+        </button>
+        <!-- /button-menu -->
+
+        <!-- /header -->
+
+        <!-- container -->
+        <div class="container" [@routeAnimations]="prepareRoute(outlet)">
+            <!-- content -->
+            <router-outlet #outlet="outlet"></router-outlet>
+            <!-- /content -->
+        </div>
+        <!-- /container -->
+
+    </mat-sidenav-content>
+    <!-- /sidenav-content -->
+
+</mat-sidenav-container>
+
+
+<!-- <header>
 
     <span></span>
 
@@ -9,9 +63,7 @@
         </mat-action-list>
     </nav>
 
-    <div class="footer-header">
-        <i style="margin:0 10px" class="em em-flag-co"></i> &copy;2019
-    </div>
+    
 
 </header>
 
@@ -24,4 +76,4 @@
 
 <div *ngIf="removePageLoaded" class="overlay-for-spinner {{ !pageLoaded ? 'deactive' : '' }}">
     <mat-spinner color="primary"></mat-spinner>
-</div>
+</div> -->

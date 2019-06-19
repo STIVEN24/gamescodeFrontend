@@ -1,4 +1,59 @@
 header {
+    background: transparent;
+    display: inline-block
+}
+
+
+mat-sidenav .sidenav-container {
+    height: 100%;
+    background: #2d2d2d;
+    display: flex !important;
+    justify-content: space-between;
+    flex-direction: column
+}
+
+mat-sidenav-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #2d2d2d
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 1em 0;
+    color: #fff
+}
+
+mat-nav-list a {
+    color: #fff !important;
+}
+
+mat-nav-list a.active {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+.mat-icon-menu-content {
+    position: fixed;
+    left:0;
+    top:0;
+    margin: 1em 0 0 1em
+}
+
+.mat-icon-menu-sidenav {
+    width:100%;
+    margin-top:1em; 
+    display: flex;
+    justify-content: center
+}
+
+/* header {
     position: fixed;
     left: 0;
     top: 0;
@@ -19,6 +74,7 @@ header {
 header nav {
     width: 100%
 }
+*/
 
 .footer-header {
     display: flex;
@@ -30,6 +86,7 @@ header nav {
     color: #000
 }
 
+/*
 .container {
     position: relative;
     width: 100%;
@@ -66,4 +123,4 @@ nav mat-action-list button {
 nav mat-action-list button.active {
     background: #fff;
     color: #000 !important
-}
+} */

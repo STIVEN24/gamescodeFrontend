@@ -4,7 +4,7 @@
   </ul>
 </ul> -->
 
-<mat-grid-list cols="2" rowHeight="46em">
+<mat-grid-list cols="{{ mobileQuery.matches ? 1 : 2 }}" rowHeight="46em">
 
   <mat-grid-tile *ngFor="let game of games.token">
 

@@ -13,13 +13,6 @@
             Publicado {{ game.fecha_publicada | timeAgo }} | Visitas: {{ game.visitas }}
         </mat-card-subtitle>
 
-        <a target="_bank" href="{{ game.url_mega }}?tokenValidate={{ tokenValidate }}&token={{ token }}">
-            <button mat-raised-button color="accent">
-                Descargar ahora!
-                <mat-icon>cloud_download</mat-icon>
-            </button>
-        </a>
-
     </mat-card-header>
 
     <mat-divider></mat-divider>
@@ -98,11 +91,6 @@
         <div *ngFor="let img of game.urls_imagenes; let i = index" class="content-images">
             <mat-spinner *ngIf="verifyImgLoaded" color="accent"></mat-spinner>
             <img (load)="some(i)" mat-card-image [src]="img">
-
-            <div class="wallpaperImgGameOverlay">
-            </div>
-            <img class="wallpaperImgGame" [src]="img">
-
         </div>
 
 

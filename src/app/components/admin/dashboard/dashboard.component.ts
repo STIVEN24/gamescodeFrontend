@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 // service
 import { GameService } from '../../../services/game.service';
@@ -15,15 +16,26 @@ import * as jwt_decode from 'jwt-decode';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
+
+  mobileQuery: MediaQueryList;
 
   constructor(
     private gameService: GameService,
     private activatedRoute: ActivatedRoute,
-    private titleComponent: Title
+    private titleComponent: Title,
+    changeDetectorRef: ChangeDetectorRef,
+    mediaMatcher: MediaMatcher
   ) {
     this.titleComponent.setTitle('Juegos - Gamescode');
+
+    this.mobileQuery = mediaMatcher.matchMedia(' (max-width: 760px) ');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+    console.log(this.mobileQuery.matches)
   }
+
+  private _mobileQueryListener: () => void;
 
   games: any = [];
   tokenDecoded: any = "";
@@ -41,6 +53,10 @@ export class DashboardComponent implements OnInit {
     // console.log("queryParams: ", this.activatedRoute.snapshot.queryParams);
     // console.log("fragment: ", this.activatedRoute.snapshot.fragment);
 
+  }
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener)
   }
 
   getLinksGames() {
