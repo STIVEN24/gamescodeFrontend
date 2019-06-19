@@ -3,7 +3,6 @@ header {
     display: inline-block
 }
 
-
 mat-sidenav .sidenav-container {
     height: 100%;
     background: #2d2d2d;
@@ -41,41 +40,18 @@ mat-nav-list a.active {
 
 .mat-icon-menu-content {
     position: fixed;
-    left:0;
-    top:0;
+    left: 0;
+    top: 0;
     margin: 1em 0 0 1em;
-    z-index:1;
+    z-index: 1;
 }
 
 .mat-icon-menu-sidenav {
-    width:100%;
-    margin-top:1em; 
+    width: 100%;
+    margin-top: 1em;
     display: flex;
     justify-content: center
 }
-
-/* header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 150px;
-    height: 100%;
-    background: #212121;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column
-}
-
-.containerFather {
-    margin-left: 150px;
-}
-
-header nav {
-    width: 100%
-}
-*/
 
 .footer-header {
     display: flex;
@@ -87,16 +63,6 @@ header nav {
     color: #000
 }
 
-/*
-.container {
-    position: relative;
-    width: 100%;
-    max-width: 1000px;
-    margin: auto;
-    padding: 1em 0
-}
-
-*/
 .overlay-for-spinner {
     transition: all 1s;
     position: fixed;
@@ -112,16 +78,8 @@ header nav {
     visibility: visible;
     z-index: 1;
 }
+
 .overlay-for-spinner.deactive {
     opacity: 0;
     visibility: hidden;
 }
-/*
-nav mat-action-list button {
-    color: #fff !important
-}
-
-nav mat-action-list button.active {
-    background: #fff;
-    color: #000 !important
-} */
