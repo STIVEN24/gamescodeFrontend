@@ -81,7 +81,7 @@ export const myTransition =
 				style({ transform: 'translateX(100%)' })
 			]),
 			query(':enter, :leave', [
-				style({ position: 'absolute', top: 0, left: 0, right: 0, padding: '1em 0' })
+				style({ position: 'absolute', top: 0, left: 0, right: 0, padding: '4em 0' })
 			]),
 			group([
 				query(':leave', [
@@ -101,7 +101,7 @@ export const myTransition =
 				style({ transform: 'translateX(-100%)', opacity: 0 })
 			]),
 			query(':enter, :leave', [
-				style({ position: 'absolute', top: 0, left: 0, right: 0, padding: '1em 0' })
+				style({ position: 'absolute', top: 0, left: 0, right: 0, padding: '4em 0' })
 			]),
 			group([
 				query(':leave', [
@@ -121,7 +121,7 @@ export const myTransition =
 				style({ transform: 'translateY(100%)', opacity: 0 })
 			]),
 			query(':enter, :leave', [
-				style({ position: 'absolute', top: 0, left: 0, right: 0, padding: '1em 0' })
+				style({ position: 'absolute', top: 0, left: 0, right: 0, padding: '4em 0' })
 			]),
 			group([
 				query(':leave', [
